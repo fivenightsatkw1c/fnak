@@ -6,7 +6,7 @@
                 <div class="nav-menu" id="nav-menu">
                     <ul class="nav-list grid">
                         <li class="nav-item">
-                            <a href="/index.php" class="nav-link active-link">
+                            <a href="/Website/index.php" class="nav-link active-link">
                                 <i class="uil uil-estate nav-icon"></i>Home
                             </a>
                         </li>
@@ -16,7 +16,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/RegisterForem.php" class="nav-link">
+                            <a href="/Website/RegisterForem.php" class="nav-link">
                                 <i class="uil uil-file-info-alt nav-icon"></i> Registrieren</a
                             >
                         </li>
