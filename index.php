@@ -25,7 +25,7 @@
      <!-- Main content -->
     <main class="main">
        
-        <svg class="blobCont">
+        <!-- <svg class="blobCont">
             <image href="./assets/img/Backround.png" mask="url(#mask)" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
             <defs>
                 <filter id="gooey" height="130%">
@@ -35,7 +35,7 @@
             </defs>
             <mask id="mask" x="0" y="0">
             <g style="filter: url(#gooey)">
-                <!-- Add circles -->
+                <!- Add circles 
                   <circle class="blob" cx="10%" cy="10%" r="80" fill="white" stroke="white"/>
                   <circle class="blob" cx="50%" cy="10%" r="40" fill="white" stroke="white"/>
                   <circle class="blob" cx="17%" cy="15%" r="70" fill="white" stroke="white"/>
@@ -56,7 +56,7 @@
                   <circle class="blob" cx="10%" cy="50%" r="80" fill="white" stroke="white"/>
                 </g>
             </mask>
-        </svg>
+        </svg> -->
         <!-- ... -->
         
     </main>

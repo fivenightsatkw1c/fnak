@@ -5,11 +5,11 @@ Datum:      15-12-2023
 Subject:    Alle functies voor de database
 */
 
-///////////////////////////////
-//                           //
-//   Gebruik deze file NIET  //
-//                           //
-///////////////////////////////
+////////////////////////////////
+//                            //
+//   Gebruik deze file NIET   //
+//                            //
+////////////////////////////////
 
 //////////////////////
 // General functies //
@@ -56,7 +56,7 @@ $arg = een array van alle data
 */
 function ExecuteQuery($query, $types = "", array $arg = [])
 {
-    //$result;
+    $result = null;
 
     // Start de connectie
     $conn = StartConnection();

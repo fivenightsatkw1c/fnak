@@ -11,7 +11,7 @@ function StartConnection()
     // Replace these values with your actual database credentials
     $servername = "127.0.0.1";
     $username = "root";
-    $password = "";
+    $password = ""; 
     $dbname = "Fnak";
 
     // Create a connection to the database
@@ -24,7 +24,7 @@ function StartConnection()
     }
     else
     {
-        echo "<strong>Connected</strong><br>";
+        // echo "<strong>Connected</strong><br>";
         return $conn;
     }
 }
@@ -34,7 +34,7 @@ function EndConnection($conn, $stmt)
 {
     $stmt->close();
     $conn->close();
-    echo "<strong>Disconnected</strong><br>";
+    // echo "<strong>Disconnected</strong><br>";
 }
 
 /*
@@ -46,7 +46,7 @@ $arg = een array van alle data
 */
 function ExecuteQuery($query, $types = "", array $arg = [])
 {
-    //$result;
+    $result = null;
 
     // Start de connectie
     $conn = StartConnection();
@@ -74,12 +74,13 @@ function ExecuteQuery($query, $types = "", array $arg = [])
             {
                 $result = $stmt->affected_rows;
             }
-            echo "<strong>Query successful:</strong> ".$query."<br>";
+            // echo "<strong>Query successful:</strong> ".$query."<br>";
         }
         else
         {
             // 😔
             echo "<strong>Er is iets mis gegaan</strong><br>";
+            die();
         }
     }
     catch (Exception $e)
