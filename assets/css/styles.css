@@ -89,7 +89,8 @@ main {
 h1,
 h2,
 h3,
-h4 {
+h4
+{
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }

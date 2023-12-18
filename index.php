@@ -25,39 +25,14 @@
      <!-- Main content -->
     <main class="main">
        
-        <svg class="blobCont">
-            <image href="./assets/img/Backround.png" mask="url(#mask)" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
-            <defs>
-                <filter id="gooey" height="130%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                </filter>
-            </defs>
-            <mask id="mask" x="0" y="0">
-            <g style="filter: url(#gooey)">
-                <!-- Add circles -->
-                  <circle class="blob" cx="10%" cy="10%" r="80" fill="white" stroke="white"/>
-                  <circle class="blob" cx="50%" cy="10%" r="40" fill="white" stroke="white"/>
-                  <circle class="blob" cx="17%" cy="15%" r="70" fill="white" stroke="white"/>
-                  <circle class="blob" cx="90%" cy="20%" r="120" fill="white" stroke="white"/>
-                  <circle class="blob" cx="30%" cy="25%" r="30" fill="white" stroke="white"/>
-                  <circle class="blob" cx="50%" cy="60%" r="80" fill="white" stroke="white"/>
-                  <circle class="blob" cx="70%" cy="90%" r="10" fill="white" stroke="white"/>
-                  <circle class="blob" cx="90%" cy="60%" r="90" fill="white" stroke="white"/>
-                  <circle class="blob" cx="30%" cy="90%" r="80" fill="white" stroke="white"/>
-                  <circle class="blob" cx="10%" cy="10%" r="80" fill="white" stroke="white"/>
-                  <circle class="blob" cx="50%" cy="10%" r="20" fill="white" stroke="white"/>
-                  <circle class="blob" cx="17%" cy="15%" r="70" fill="white" stroke="white"/>
-                  <circle class="blob" cx="40%" cy="20%" r="120" fill="white" stroke="white"/>
-                  <circle class="blob" cx="30%" cy="25%" r="30" fill="white" stroke="white"/>
-                  <circle class="blob" cx="80%" cy="60%" r="80" fill="white" stroke="white"/>
-                  <circle class="blob" cx="17%" cy="10%" r="100" fill="white" stroke="white"/>
-                  <circle class="blob" cx="40%" cy="60%" r="90" fill="white" stroke="white"/>
-                  <circle class="blob" cx="10%" cy="50%" r="80" fill="white" stroke="white"/>
-                </g>
-            </mask>
-        </svg>
-        <!-- ... -->
+        
+    <section class="section">
+        <h1 class="section-title">Test</h1>
+        <p class="section-subtitle">
+            Stap in de toekomst van escape rooms met onze unieke en themaloze ervaring, volledig aangedreven door de kracht van Raspberry Pi! Ontdek een wereld waar technologie en spanning samenkomen in een meeslepend avontuur zonder grenzen. Onze escape room, gevormd door innovatieve Raspberry Pi-componenten, biedt een opwindende reeks uitdagingen die je denkvermogen en teamvaardigheden op de proef stellen.
+            Duik in een labyrint van geavanceerde puzzels en interactieve opstellingen, waar elke Raspberry Pi-geïntegreerde component een sleutelrol speelt in het ontrafelen van de mysteries. Werk samen met je team, analyseer de codes en navigeer door de digitale en fysieke puzzels om de ultieme ontsnapping te bereiken.
+            Durf jij de onbekende wereld van onze Raspberry Pi escape room te betreden? Reserveer nu en ontdek een nieuwe dimensie van escapisme, waar de toekomst van technologie en entertainment elkaar ontmoeten. Een ervaring die je niet wilt missen!</p>
+    </section>
         
     </main>
     <!-- Footer content -->
