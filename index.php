@@ -22,7 +22,10 @@
 </head>
 <body>
     <!-- Header content -->
-    <?php $link1="active-link";include 'header.php'; ?>
+    <?php 
+      $link1="active-link";
+      include 'header.php';
+    ?>
      <!-- Main content -->
     <main class="main">
        
