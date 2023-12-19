@@ -28,30 +28,7 @@ navLinks.forEach((navLink) =>
     })
 );
 
-
-/*==================== CLICK LOCATION ACTIVE LINK ====================*/
-const navLinksClick = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-function clickTracker(event) {
-    event.preventDefault();
-    const clickedLink = event.target;
-    const href = clickedLink.getAttribute('href');
-    const targetSection = document.querySelector(href);
-
-    if (targetSection) {
-        window.scrollTo({
-            top: targetSection.offsetTop - 50,
-            behavior: 'smooth'
-        });
-
-        navLinksClick.forEach(link => link.classList.remove('active-link'));
-        clickedLink.classList.add('active-link');
-    }
-}
-
-navLinksClick.forEach(link => {
-    link.addEventListener('click', clickTracker);
-});
+    
 
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/

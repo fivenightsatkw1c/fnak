@@ -1,3 +1,14 @@
+ <?php
+if(!isset($link1)){
+    $link1 = "";
+}
+if(!isset($link2)){
+    $link2 = "";
+}
+if(!isset($link3)){
+    $link3 = "";
+}
+ ?>
  <!--==================== HEADER ====================-->
  <header class="header" id="header">
             <nav class="nav container">
@@ -6,17 +17,17 @@
                 <div class="nav-menu" id="nav-menu">
                     <ul class="nav-list grid">
                         <li class="nav-item">
-                            <a href="/Website/index.php" class="nav-link active-link">
+                            <a href="/index.php" class=<?php echo "\"nav-link ".$link1."\"" ?>>
                                 <i class="uil uil-estate nav-icon"></i>Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#Info" class="nav-link">
+                            <a href="#Info" class=<?php echo "\"nav-link ".$link2."\"" ?>>
                                 <i class="uil uil-file-info-alt nav-icon"></i>Info
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Website/RegisterForem.php" class="nav-link">
+                            <a href="/RegisterForm.php" class=<?php echo "\"nav-link ".$link3."\"" ?>>
                                 <i class="uil uil-file-info-alt nav-icon"></i> Registrieren</a
                             >
                         </li>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <!--==================== UNICONS ====================-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -21,7 +22,7 @@
 </head>
 <body>
     <!-- Header content -->
-    <?php include 'header.php'; ?>
+    <?php $link1="active-link";include 'header.php'; ?>
      <!-- Main content -->
     <main class="main">
        
@@ -33,7 +34,7 @@
             Duik in een labyrint van geavanceerde puzzels en interactieve opstellingen, waar elke Raspberry Pi-geïntegreerde component een sleutelrol speelt in het ontrafelen van de mysteries. Werk samen met je team, analyseer de codes en navigeer door de digitale en fysieke puzzels om de ultieme ontsnapping te bereiken.
             Durf jij de onbekende wereld van onze Raspberry Pi escape room te betreden? Reserveer nu en ontdek een nieuwe dimensie van escapisme, waar de toekomst van technologie en entertainment elkaar ontmoeten. Een ervaring die je niet wilt missen!</p>
             <div>
-                            <a href="/Website/RegisterForem.php" class="button button--flex">
+                            <a href="/RegisterForem.php" class="button button--flex">
                                 Ontdek meer!
                                 <i class="uil uil-message button-icon"></i>
                             </a>
