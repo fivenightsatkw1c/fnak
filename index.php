@@ -27,17 +27,17 @@
        
         
     <section class="section">
-        <h1 class="section-title">Test</h1>
+        <h1 class="section-title">Speel jij mee met de escape room?</h1>
         <p class="section-subtitle">
-            Stap in de toekomst van escape rooms met onze unieke en themaloze ervaring, volledig aangedreven door de kracht van Raspberry Pi! Ontdek een wereld waar technologie en spanning samenkomen in een meeslepend avontuur zonder grenzen. Onze escape room, gevormd door innovatieve Raspberry Pi-componenten, biedt een opwindende reeks uitdagingen die je denkvermogen en teamvaardigheden op de proef stellen.
+            Stap in de toekomst van escape rooms met onze unieke ervaring, volledig aangedreven door de kracht van Raspberry Pi! Ontdek een wereld waar technologie en spanning samenkomen in een meeslepend avontuur zonder grenzen. Onze escape room, gevormd door innovatieve Raspberry Pi-componenten, biedt een opwindende reeks uitdagingen die je denkvermogen en teamvaardigheden op de proef stellen.
             Duik in een labyrint van geavanceerde puzzels en interactieve opstellingen, waar elke Raspberry Pi-geïntegreerde component een sleutelrol speelt in het ontrafelen van de mysteries. Werk samen met je team, analyseer de codes en navigeer door de digitale en fysieke puzzels om de ultieme ontsnapping te bereiken.
             Durf jij de onbekende wereld van onze Raspberry Pi escape room te betreden? Reserveer nu en ontdek een nieuwe dimensie van escapisme, waar de toekomst van technologie en entertainment elkaar ontmoeten. Een ervaring die je niet wilt missen!</p>
             <div>
-                            <a href="/Website/RegisterForem.php" class="button button--flex">
-                                Ontdek meer!
-                                <i class="uil uil-message button-icon"></i>
-                            </a>
-                        </div>
+                <a href="/Website/RegisterForem.php" class="button button--flex">
+                    Ontdek meer!
+                    <i class="uil uil-message button-icon"></i>
+                </a>
+            </div>
     </section>
         
     </main>
