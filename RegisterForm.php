@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     
     <!--==================== UNICONS ====================-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -21,7 +21,7 @@
 </head>
 <body>
     <!-- Header content -->
-    <?php include 'header.php'; ?>
+    <?php $link3="active-link"; include 'header.php'; ?>
      <!-- Main content -->
     <main class="main">
        
@@ -29,36 +29,29 @@
         <!-- ... -->
          <!--==================== RegisterForm ====================-->
          <section class="RegisterForm section" id="Register">
-                <h2 class="section-title">Register Me</h2>
-                <span class="section-subtitle">Get in touch</span>
+                <h2 class="section-title">Register Hier</h2>
+                <span class="section-subtitle"></span>
 
                 <div class="Register-container container">
                     <form class="Register-form grid">
                         <div class="Register-inputs grid">
                             <div class="Register-content">
-                                <label for="name" class="Register-label">Name</label>
+                                <label for="team" class="Register-label">TeamNaam</label>
                                 <input type="text" class="Register-input" id="name" />
                             </div>
                             <div class="Register-content">
-                                <label for="email" class="Register-label">Email</label>
-                                <input type="email" class="Register-input" id="email" />
+                                <label for="email" class="Register-label">Tijd</label>
+                                <select name="time" class="Register-input">
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="Register-content">
-                            <label for="project" class="Register-label">Project</label>
-                            <input type="text" class="Register-input" id="project" />
-                        </div>
-
-                        <div class="Register-content">
-                            <label for="message" class="Register-label">Message</label>
-                            <textarea
-                                name="message"
-                                id="message"
-                                cols="0"
-                                rows="7"
-                                class="Register-input"
-                            ></textarea>
+                            <label for="leden" class="Register-label">Leden</label>
+                            <input type="text" class="Register-input" id="leden" />
                         </div>
 
                         <div>
