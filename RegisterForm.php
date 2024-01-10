@@ -24,9 +24,7 @@
     <?php $link3="active-link"; include 'header.php'; ?>
      <!-- Main content -->
     <main class="main">
-       
-        
-        <!-- ... -->
+
          <!--==================== RegisterForm ====================-->
          <section class="RegisterForm section" id="Register">
                 <h2 class="section-title">Registeer Hier</h2>
@@ -94,8 +92,6 @@
 
             </section>
         </main>
-
-    </main>
     <!-- Footer content -->
     <?php include 'footer.php'; ?>
 
