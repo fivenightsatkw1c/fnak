@@ -29,39 +29,53 @@
         <!-- ... -->
          <!--==================== RegisterForm ====================-->
          <section class="RegisterForm section" id="Register">
-                <h2 class="section-title">Register Hier</h2>
+                <h2 class="section-title">Registeer Hier</h2>
                 <span class="section-subtitle"></span>
 
                 <div class="Register-container container">
-                    <form class="Register-form grid">
-                        <div class="Register-inputs grid">
-                            <div class="Register-content">
-                                <label for="team" class="Register-label">TeamNaam</label>
-                                <input type="text" class="Register-input" id="name" />
-                            </div>
-                            <div class="Register-content">
-                                <label for="email" class="Register-label">Tijd</label>
-                                <select name="time" class="Register-input">
-                                    <option value="08:00">8:00 AM</option>
-                                    <option value="09:00">9:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                </select>
-                            </div>
-                        </div>
+    <form class="Register-form grid" method="post" action="process_form.php">
+        <div class="Register-inputs grid">
+            <div class="Register-content">
+                <label for="team" class="Register-label">TeamNaam</label>
+                <input type="text" class="Register-input" id="name" name="team_name" required />
+            </div>
+            <div class="Register-content">
+                <label for="email" class="Register-label">E-mail</label>
+                <input type="email" class="Register-input" id="email" name="email" required />
+            </div>
+            <div class="Register-content">
+                <label for="email" class="Register-label">Tijd</label>
+                <select name="time" class="Register-input">
+                    <?php
+                    for ($hour = 8; $hour <= 16; $hour++) {
+                        $timeValue = sprintf("%02d:30", $hour);
+                        echo "<option value=\"$timeValue\">$hour:30</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="Register-content">
+                <label for="leden" class="Register-label">Leden</label>
+                <input type="text" class="Register-input" id="leden" name="members" required />
+            </div>
+            <div class="Register-content">
+                <label for="day" class="Register-label">Dag</label>
+                <select name="day" class="Register-input">
+                    <option value="22">22nd January</option>
+                    <option value="23">23rd January</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="button button--flex" name="submit_form">
+                Registreren
+                <i class="uil uil-message button-icon"></i>
+            </button>
+        </div>
+    </form>
+</div>
 
-                        <div class="Register-content">
-                            <label for="leden" class="Register-label">Leden</label>
-                            <input type="text" class="Register-input" id="leden" />
-                        </div>
 
-                        <div>
-                            <a href="#Register" class="button button--flex">
-                                Send Message
-                                <i class="uil uil-message button-icon"></i>
-                            </a>
-                        </div>
-                    </form>
-                </div>
             </section>
         </main>
 
