@@ -34,7 +34,7 @@ function StartConnection()
     }
     else
     {
-        echo "<strong>Connected</strong><br>";
+        // echo "<strong>Connected</strong><br>";
         return $conn;
     }
 }
@@ -44,7 +44,7 @@ function EndConnection($conn, $stmt)
 {
     $stmt->close();
     $conn->close();
-    echo "<strong>Disconnected</strong><br>";
+    // echo "<strong>Disconnected</strong><br>";
 }
 
 /*
@@ -111,12 +111,12 @@ function ExecuteQuery($query, $types = "", array $arg = [])
 ////////////////////
 
 // Creates een nieuwe groep en zet deze in de database
-function CreateGroep($groepNaam, $email, $reserveerDatumTijd, $escapeTijd)
+function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 {
     // Query aanmaken
-    $query = "INSERT INTO Groep(Groepnaam, Email, reserveerDatumTijd, EscapeTijd) VALUES (?, ?, ?, ?)";
+    $query = "INSERT INTO Groep(Groepnaam, Email, reserveerDatumTijd) VALUES (?, ?, ?)";
     // Query uitvoeren
-    return ExecuteQuery($query, "ssss", [$groepNaam, $email, $reserveerDatumTijd, $escapeTijd]);
+    return ExecuteQuery($query, "sss", [$groepNaam, $email, $reserveerDatumTijd]);
 }
 
 // Haalt alle groepen op en sorteerd deze
@@ -151,6 +151,16 @@ function ReadOneGroep($GroepId)
     
     // Query uitvoeren
     return ExecuteQuery($query, "i", [$GroepId]);
+}
+function ReadOneGroepName($Groepnaam)
+{
+    // Query aanmaken
+    $query = "SELECT GroepId ".
+    "FROM Groep ".
+    "WHERE Groepnaam = ?";
+    
+    // Query uitvoeren
+    return ExecuteQuery($query, "s", [$Groepnaam])->fetch_row()[0];
 }
 
 // Update de groep op basis van GroepId

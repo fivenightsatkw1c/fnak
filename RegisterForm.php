@@ -37,11 +37,11 @@
         <div class="Register-inputs grid">
             <div class="Register-content">
                 <label for="team" class="Register-label">TeamNaam</label>
-                <input type="text" class="Register-input" id="name" name="team_name" required />
+                <input type="text" class="Register-input" id="GroepName" name="team_name" required />
             </div>
             <div class="Register-content">
                 <label for="email" class="Register-label"> Primaire Contact E-mail</label>
-                <input type="email" class="Register-input" id="email" name="email" required />
+                <input type="email" class="Register-input" id="Email" name="email" required />
             </div>
             <div class="Register-content">
                 <label for="day" class="Register-label">Dag</label>
@@ -63,23 +63,23 @@
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 1</label>
-                <input type="text" class="Register-input"  id="leden" name="members" required />
+                <input type="text" class="Register-input"  id="leden1" name="member1" required />
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 2</label>
-                <input type="text" class="Register-input"  readonly="leden" name="members" required />
+                <input type="text" class="Register-input"  id="leden2" name="member2" required />
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 3</label>
-                <input type="text" class="Register-input"  id="leden" name="members" required />
+                <input type="text" class="Register-input"  id="leden3" name="member3" required />
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 4(Optioneel)</label>
-                <input type="text" class="Register-input" id="leden" name="members"/>
+                <input type="text" class="Register-input" id="leden4" name="member4"/>
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 5(Optioneel)</label>
-                <input type="text" class="Register-input" id="leden" name="members"/>
+                <input type="text" class="Register-input" id="leden5" name="member5"/>
             </div>
         </div>
         <div>

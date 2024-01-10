@@ -10,12 +10,12 @@ Subject:    General functies voor de database
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 // Creates een nieuwe groep en zet deze in de database
-function CreateGroep($groepNaam, $email, $reserveerDatumTijd, $escapeTijd)
+function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 {
     // Query aanmaken
     $query = "INSERT INTO Groep(Groepnaam, Email, reserveerDatumTijd, EscapeTijd) VALUES (?, ?, ?, ?)";
     // Query uitvoeren
-    return ExecuteQuery($query, "ssss", [$groepNaam, $email, $reserveerDatumTijd, $escapeTijd]);
+    return ExecuteQuery($query, "ssss", [$groepNaam, $email, $reserveerDatumTijd]);
 }
 
 // Haalt alle groepen op en sorteerd deze
