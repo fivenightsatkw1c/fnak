@@ -63,23 +63,23 @@
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 1</label>
-                <input type="text" class="Register-input" id="leden" name="members" required />
+                <input type="text" class="Register-input"  id="leden" name="members" required />
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 2</label>
-                <input type="text" class="Register-input" id="leden" name="members" required />
+                <input type="text" class="Register-input"  readonly="leden" name="members" required />
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 3</label>
-                <input type="text" class="Register-input" id="leden" name="members" required />
+                <input type="text" class="Register-input"  id="leden" name="members" required />
             </div>
             <div class="Register-content">
-                <label for="leden" class="Register-label">teamlid 4</label>
-                <input type="text" class="Register-input" id="leden" name="members" required />
+                <label for="leden" class="Register-label">teamlid 4(Optioneel)</label>
+                <input type="text" class="Register-input" id="leden" name="members"/>
             </div>
             <div class="Register-content">
-                <label for="leden" class="Register-label">teamlid 5</label>
-                <input type="text" class="Register-input" id="leden" name="members" required />
+                <label for="leden" class="Register-label">teamlid 5(Optioneel)</label>
+                <input type="text" class="Register-input" id="leden" name="members"/>
             </div>
         </div>
         <div>
