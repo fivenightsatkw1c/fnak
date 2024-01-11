@@ -55,57 +55,19 @@
             </div>
         </section>
 
-        <section class="section" id="Register">
+        <section class="section" id="Register-View">
             <h2 class="section-title">Registeer Hier</h2>
-            <div class="Register-container container">
-                <form class="Register-form grid" method="post" action="process_form.php">
-                    <div class="Register-inputs grid">
-                        <div class="Register-content">
-                            <label for="team" class="Register-label">TeamNaam</label>
-                            <input type="text" class="Register-input" id="name" name="team_name" required>
+            <div class="Register-View-container container">
+                <form class="Register-View-form grid" method="post" action="process_form.php">
+                    <div class="Register-View-inputs grid">
+                        <div class="Register-View-content">
+                            <label for="team" class="Register-View-label">TeamNaam</label>
+                            <input type="text" class="Register-View-input" id="name" name="team_name" required>
                         </div>
-                        <div class="Register-content">
-                            <label for="email" class="Register-label"> Primaire Contact E-mail</label>
-                            <input type="email" class="Register-input" id="email" name="email" required>
-                        </div>
-                        <div class="Register-content">
-                            <label for="day" class="Register-label">Dag</label>
-                            <select name="day" class="Register-input">
-                                <option value="22">22nd January</option>
-                                <option value="23">23rd January</option>
-                            </select>
-                        </div>
-                        <div class="Register-content">
-                            <label for="email" class="Register-label">Tijd</label>
-                            <select name="time" class="Register-input">
-                                <?php
-                                for ($hour = 9; $hour <= 14; $hour++) {
-                                    $timeValue = sprintf("%02d:00", $hour);
-                                    echo "<option value=\"$timeValue\">$hour:00</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="Register-content">
-                            <label for="leden" class="Register-label">teamlid 1</label>
-                            <input type="text" class="Register-input" id="leden" name="members" required>
-                        </div>
-                        <div class="Register-content">
-                            <label for="leden" class="Register-label">teamlid 2</label>
-                            <input type="text" class="Register-input" id="leden" name="members" required>
-                        </div>
-                        <div class="Register-content">
-                            <label for="leden" class="Register-label">teamlid 3</label>
-                            <input type="text" class="Register-input" id="leden" name="members" required>
-                        </div>
-                        <div class="Register-content">
-                            <label for="leden" class="Register-label">teamlid 4(Optioneel)</label>
-                            <input type="text" class="Register-input" id="leden" name="members">
-                        </div>
-                        <div class="Register-content">
-                            <label for="leden" class="Register-label">teamlid 5(Optioneel)</label>
-                            <input type="text" class="Register-input" id="leden" name="members">
-                        </div>
+                        <div class="Register-View-content">
+                            <label for="email" class="Register-View-label"> Primaire Contact E-mail</label>
+                            <input type="email" class="Register-View-input" id="email" name="email" required>
+                        </div>                     
                     </div>
                     <div>
                         <button type="submit" class="button button--flex" name="submit_form">
