@@ -11,9 +11,9 @@ require_once "/home/site/wwwroot/Database/DbGeneralFunctions.php";
 function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 {
     // Query aanmaken
-    $query = "INSERT INTO Groep(Groepnaam, Email, reserveerDatumTijd, EscapeTijd) VALUES (?, ?, ?, ?)";
+    $query = "INSERT INTO Groep(Groepnaam, Email, reserveerDatumTijd) VALUES (?, ?, ?)";
     // Query uitvoeren
-    return ExecuteQuery($query, "ssss", [$groepNaam, $email, $reserveerDatumTijd]);
+    return ExecuteQuery($query, "sss", [$groepNaam, $email, $reserveerDatumTijd]);
 }
 
 // Haalt alle groepen op en sorteerd deze
