@@ -27,5 +27,6 @@ if (($_POST['member5']) !== "") {
 foreach ($members as $member) {
     CreateStudent($groepId, $member);
 }
-echo 'Registratie successfull. U wordt terug gestuurd naar de home pagina over een paar seconden';
 header( "refresh:4;url=index.php" );
+echo 'Registratie successfull. U wordt terug gestuurd naar de home pagina over een paar seconden';
+
