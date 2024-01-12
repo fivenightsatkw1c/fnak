@@ -56,7 +56,7 @@ function ReadOneGroepName($Groepnaam)
     "WHERE Groepnaam = ?";
     
     // Query uitvoeren
-    return ExecuteQuery($query, "s", [$Groepnaam])->fetch()[0];
+    return ExecuteQuery($query, "s", [$Groepnaam])->fetch()["GroepId"];
 }
 
 // Update de groep op basis van GroepId
