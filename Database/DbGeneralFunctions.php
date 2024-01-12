@@ -37,7 +37,7 @@ $Types = een string met alle datatypes die gebruikt word voor bind_param().
 $arg = een array van alle data
     Voor meer informatie: https://www.php.net/manual/en/mysqli-stmt.bind-param.php
 */
-function ExecuteQuery($query, $types = "", array $arg = []): PDOStatement
+function ExecuteQuery($query, $types = "", array $arg = [])
 {
     $result = null;
 
