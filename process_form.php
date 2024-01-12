@@ -1,6 +1,7 @@
 <?php
 
 require_once './Database/GroepController.php';
+include "Database/StudentController.php";
 
 $groepName = $_POST['team_name'];
 $email = $_POST['email'];
