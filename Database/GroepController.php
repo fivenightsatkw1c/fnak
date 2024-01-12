@@ -23,15 +23,15 @@ function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 // {
 //     echo $row["Email"]."<br>";
 // }
-function ReadAllGroep($OrderBy = "G.GroepId")
+function ReadAllGroep($OrderBy = "")
 {
     // Query aanmaken
     $query = "SELECT * ".
     "FROM Groep AS G ".
-    "ORDER BY ?";
+    "ORDER BY G.GroepId";
     
     // Query uitvoeren
-    return ExecuteQuery($query, "s", [$OrderBy]);
+    return ExecuteQuery($query, "", []);
 }
 
 // Haalt één groep op
