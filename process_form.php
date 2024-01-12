@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Database/DatabaseFunctions.php';
+require_once './Database/GroepController.php';
 
 $groepName = $_POST['team_name'];
 $email = $_POST['email'];
@@ -16,9 +16,9 @@ $groepId = ReadOneGroepName($groepName);
 
 
 $members = [$_POST['member1'], $_POST['member2'], $_POST['member3']];
-if (isset($_POST['member4'])) {
-    array_push($members, $_POST['member4']);
-}
+if (isset($_POST['member4']))
+  array_push($members, $_POST['member4']);
+
 if (isset($_POST['member4'])) {
     array_push($members, $_POST['member5']);
 }

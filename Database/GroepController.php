@@ -2,12 +2,10 @@
 /*
 Naam:       Jeffrey
 Datum:      15-12-2023
-Subject:    General functies voor de database
+Subject:    
 */
 
-////////////////////////////////////////////////////////////////////////////////////////////
-// Om deze code te gebruiken moet je "include DbGeneralFunctions;" Toevoegen aan je code! //
-////////////////////////////////////////////////////////////////////////////////////////////
+require_once ./DbGeneralFunctions.php; 
 
 // Creates een nieuwe groep en zet deze in de database
 function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
@@ -50,6 +48,17 @@ function ReadOneGroep($GroepId)
     
     // Query uitvoeren
     return ExecuteQuery($query, "i", [$GroepId]);
+}
+
+function ReadOneGroepName($Groepnaam)
+{
+    // Query aanmaken
+    $query = "SELECT GroepId ".
+    "FROM Groep ".
+    "WHERE Groepnaam = ?";
+    
+    // Query uitvoeren
+    return ExecuteQuery($query, "s", [$Groepnaam])->fetch()[0];
 }
 
 // Update de groep op basis van GroepId
