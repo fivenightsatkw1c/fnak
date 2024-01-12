@@ -24,12 +24,6 @@ function StartConnection()
     }
 }
 
-// Eindigd de connectie met de database
-function EndConnection(PDO $conn, PDOStatement $stmt)
-{
-  $stmt->closeCursor();
-}
-
 /*
 $Query = een string van de query die uitgevoert moet worden. Alle data in deze query moet een "?" worden.
 $Types = een string met alle datatypes die gebruikt word voor bind_param().
@@ -75,9 +69,6 @@ function ExecuteQuery($query, $types = "", array $arg = [])
         echo "<strong>Query error</strong>: ".$query."<br>".$e."<br>";
         die();
     }
-
-    // Eindigd de connectie
-    EndConnection($conn, $stmt);
 
     // Geeft het resultaat terug
     return $result;
