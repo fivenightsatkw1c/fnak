@@ -26,10 +26,8 @@ function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 function ReadAllGroep($OrderBy = "G.GroepId")
 {
     // Query aanmaken
-    $query = "SELECT G.*, S.StudentId, S.StudentNaam ".
+    $query = "SELECT * ".
     "FROM Groep AS G ".
-    "JOIN Student AS S ".
-    "ON G.GroepId = S.StudentId ".
     "ORDER BY ?";
     
     // Query uitvoeren

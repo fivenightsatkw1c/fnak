@@ -12,7 +12,7 @@ if(!isset($link3)){
  <!--==================== HEADER ====================-->
  <header class="header" id="header">
             <nav class="nav container">
-                <a href="/index.php" class="nav-logo">Five Night ate Kw1c</a>
+                <a href="/index.php" class="nav-logo">Five Nights at Kw1c</a>
 
                 <div class="nav-menu" id="nav-menu">
                     <ul class="nav-list grid">
@@ -28,7 +28,7 @@ if(!isset($link3)){
                         </li>
                         <li class="nav-item">
                             <a href="RegisterForm.php" class=<?php echo "\"nav-link ".$link3."\"" ?>>
-                                <i class="uil uil-file-info-alt nav-icon"></i> Registrieren</a
+                                <i class="uil uil-file-info-alt nav-icon"></i> Registreren</a
                             >
                         </li>
                     

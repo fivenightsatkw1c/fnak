@@ -47,36 +47,6 @@
                 een nieuwe dimensie van escapisme, waar de toekomst van technologie en entertainment elkaar ontmoeten.
                 Een ervaring die je niet wilt missen!
             </p>
-            <div>
-                <button type="submit" class="button button--flex" name="submit_form">
-                    Registreren
-                    <i class="uil uil-message button-icon"></i>
-                </button>
-            </div>
-        </section>
-
-        <section class="section" id="Register-View">
-            <h2 class="section-title">Registeer Hier</h2>
-            <div class="Register-View-container container">
-                <form class="Register-View-form grid" method="post" action="process_form.php">
-                    <div class="Register-View-inputs grid">
-                        <div class="Register-View-content">
-                            <label for="team" class="Register-View-label">TeamNaam</label>
-                            <input type="text" class="Register-View-input" id="name" name="team_name" required>
-                        </div>
-                        <div class="Register-View-content">
-                            <label for="email" class="Register-View-label"> Primaire Contact E-mail</label>
-                            <input type="email" class="Register-View-input" id="email" name="email" required>
-                        </div>                     
-                    </div>
-                    <div>
-                        <button type="submit" class="button button--flex" name="submit_form">
-                            Registreren
-                            <i class="uil uil-message button-icon"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
         </section>
     </main>
 

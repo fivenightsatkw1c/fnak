@@ -1,3 +1,8 @@
+<?php
+include "Database/GroepController.php";
+include "Database/StudentController.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,26 +49,78 @@
                 <input type="text" class="Register-input" id="GroepName" name="team_name" required />
             </div>
             <div class="Register-content">
-                <label for="email" class="Register-label"> Primaire Contact E-mail</label>
+                <label for="email" class="Register-label"> Primaire Contact E-mail (Voor Noodgeval)</label>
                 <input type="email" class="Register-input" id="Email" name="email" required />
             </div>
             <div class="Register-content">
-                <label for="day" class="Register-label">Dag</label>
-                <select name="day" class="Register-input">
-                    <option value="22">22nd January</option>
-                    <option value="23">23rd January</option>
-                </select>
-            </div>
-            <div class="Register-content">
-                <label for="email" class="Register-label">Tijd</label>
-                <select name="time" class="Register-input">
-                    <?php
-                    for ($hour = 9; $hour <= 14; $hour++) {
-                        $timeValue = sprintf("%02d:00", $hour);
-                        echo "<option value=\"$timeValue\">$hour:00</option>";
+                <label required for="email" class="Register-label">Tijd</label>
+                <?php
+                    $result = ReadAllGroep();
+                    $groepen = [];
+
+                    // Haalt de data op
+                    while($row = $result->fetch())
+                    {
+                        // Convert dateTime
+                        $date = date_parse($row["reserveerDatumTijd"]);
+                        array_push($groepen, $date);
                     }
+                    // echo '<pre>';
+                    // var_dump($groepen); die();
+                    // echo '</pre>';
+
+                    // Alle mogelijke tijden
+                    $times =
+                    [
+                        ["day" => 22, "hour" => 9],
+                        ["day" => 22, "hour" => 10],
+                        ["day" => 22, "hour" => 11],
+                        ["day" => 22, "hour" => 12],
+                        ["day" => 22, "hour" => 13],
+                        ["day" => 22, "hour" => 14],
+                        ["day" => 23, "hour" => 9],
+                        ["day" => 23, "hour" => 10],
+                        ["day" => 23, "hour" => 11],
+                        ["day" => 23, "hour" => 12],
+                        ["day" => 23, "hour" => 13],
+                        ["day" => 23, "hour" => 14],
+                    ];
+
+                    $groepenTijdenBezet = [];
+                    // Kijkt welke tijden al gekozen zijn
+                    foreach($groepen as $groep)
+                    {
+                        array_push($groepenTijdenBezet, [$groep["day"], $groep["hour"]]);
+                    }
+
+                    foreach($times as $index => $time)
+                    {
+                        foreach($groepen as $groep)
+                        {
+                            if ($groep["day"] == $time["day"] && $groep["hour"] == $time["hour"])
+                            {
+                                unset($times[$index]);
+                            }
+                        }
+                    }
+
+                    $currectDay = -1;
+                    echo "<select name=\"time\" class=\"Register-input\">";
+                    echo "<option disabled selected>Selecteer een tijd</option>";
+                    foreach($times as $time)
+                    {
+                        if($currectDay != $time["day"])
+                        {
+                            $currectDay = $time["day"];
+                            echo "<option disabled>".$currectDay."januari </option>";
+                        }
+                        $content = $time["hour"].":00 uur";
+                        $value = "2024-1-" . $time["day"] . " " . $time["hour"] . ":00:00";
+                        echo "<option value=\"" . $value . "\">".$content."</option>";
+                    }
+                    echo "</select>";
+
                     ?>
-                </select>
             </div>
             <div class="Register-content">
                 <label for="leden" class="Register-label">teamlid 1</label>
@@ -87,7 +144,8 @@
             </div>
         </div>
         <div>
-            <button type="submit" class="button button--flex" name="submit_form">
+          
+            <button type="submit" <?php if(count($times) == 0) echo ' disabled';?> class="button button--flex" name="submit_form">
                 Registreren
                 <i class="uil uil-message button-icon"></i>
             </button>
