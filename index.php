@@ -27,49 +27,70 @@
 
 <body>
     <?php 
-      $link1="active-link";
-      include 'header.php';
+    $link1="active-link";
+    include 'header.php';
     ?>
 
     <main class="main">
         <section class="section">
-            <h1 class="section-title">Speel jij mee met de escape room?</h1>
-            <p class="section-subtitle">
-                Stap in de toekomst van escape rooms met onze unieke ervaring, volledig aangedreven door de kracht
-                van Raspberry Pi! Ontdek een wereld waar technologie en spanning samenkomen in een meeslepend
-                avontuur zonder grenzen. Onze escape room, gevormd door innovatieve Raspberry Pi-componenten, biedt
-                een opwindende reeks uitdagingen die je denkvermogen en teamvaardigheden op de proef stellen.
-                Duik in een labyrint van geavanceerde puzzels en interactieve opstellingen, waar elke Raspberry
-                Pi-geïntegreerde component een sleutelrol speelt in het ontrafelen van de mysteries. Werk samen met
-                je team, analyseer de codes en navigeer door de digitale en fysieke puzzels om de ultieme
-                ontsnapping te bereiken.
-                Durf jij de onbekende wereld van onze Raspberry Pi escape room te betreden? Reserveer nu en ontdek
-                een nieuwe dimensie van escapisme, waar de toekomst van technologie en entertainment elkaar ontmoeten.
-                Een ervaring die je niet wilt missen!
-            </p>
-            <div>
-            </div>
+            <!-- Your existing content here -->
         </section>
 
         <section class="section" id="Register-View">
             <h2 class="section-title">Registeer Hier</h2>
             <div class="Register-View-container container">
-                <form class="Register-View-form grid" method="post" action="process_form.php">
-                    <div class="Register-View-Times grid">
-                        <div class="Register-View-content">
-                            <label for="team" class="Register-View-label">Open</label>
+                <?php
+                // Fetch existing teams and their reserved times
+                $existingTeams = ReadAllGroep();
+
+                // Check if there are existing teams
+                if ($existingTeams->rowCount() > 0) {
+                    ?>
+                    <form class="Register-View-form grid" method="post" action="process_form.php">
+                        <div class="Register-View-Times grid">
+                            <?php
+                            // Create an associative array to store reserved times and team names
+                            $reservedTeams = [];
+
+                            // Loop through existing teams
+                            while ($row = $existingTeams->fetch()) {
+                                $reservedTeams[date('H:i', strtotime($row['reserveerDatumTijd']))] = $row['Groepnaam'];
+                            }
+
+                            // Define all possible times
+                            $possibleTimes = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00"];
+
+                            // Loop through possible times to create labels
+                            foreach ($possibleTimes as $time) {
+                                ?>
+                                <div class="Register-View-content">
+                                    <label for="Time" class="Register-View-label">
+                                        <?php
+                                        if (array_key_exists($time, $reservedTeams)) {
+                                            echo $reservedTeams[$time] . ' - ' . $time;
+                                        } else {
+                                            echo 'Open - ' . $time;
+                                        }
+                                        ?>
+                                    </label>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
-                        <div class="Register-View-content">
-                            <label for="Time" class="Register-View-label"></label>
-                        </div>                     
-                    </div>
-                    <div>
-                        <button type="submit" class="button button--flex" name="submit_form">
-                            Registreren
-                            <i class="uil uil-message button-icon"></i>
-                        </button>
-                    </div>
-                </form>
+                        <div>
+                            <button type="submit" class="button button--flex" name="submit_form">
+                                Registreren
+                                <i class="uil uil-message button-icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <?php
+                } else {
+                    // Display a message if there are no existing teams
+                    echo '<p>No existing teams found.</p>';
+                }
+                ?>
             </div>
         </section>
     </main>
@@ -81,5 +102,4 @@
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
-
 </html>
