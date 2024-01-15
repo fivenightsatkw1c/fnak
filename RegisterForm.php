@@ -1,6 +1,7 @@
 <?php
 include "Database/GroepController.php";
 include "Database/StudentController.php";
+include "Database/Exists.php"
 ?>
 
 <!DOCTYPE html>
