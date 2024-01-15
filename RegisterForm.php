@@ -83,7 +83,7 @@ include "Database/StudentController.php";
 
     <main class="main">
         <section class="RegisterForm section" id="Register">
-            <h2 class="section-title">Registeer Hier</h2>
+            <h2 class="section-title">Registeer Hier1</h2>
             <span class="section-subtitle"></span>
 
                 <div class="Register-container container">
