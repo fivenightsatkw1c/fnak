@@ -23,15 +23,17 @@ function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 // {
 //     echo $row["Email"]."<br>";
 // }
-function ReadAllGroep($OrderBy = "")
+function ReadAllGroep()
 {
-    // Query aanmaken
-    $query = "SELECT * ".
-    "FROM Groep AS G ".
-    "ORDER BY G.GroepId";
-    
-    // Query uitvoeren
-    return ExecuteQuery($query, "", []);
+    $query = "SELECT * FROM Groep";
+
+    // Call ExecuteQuery to execute the query
+    $result = ExecuteQuery($query, '', []);
+
+    // Fetch all rows from the result set
+    $groepen = $result->fetchAll(PDO::FETCH_ASSOC);
+
+    return $groepen;
 }
 
 // Haalt één groep op
@@ -86,7 +88,7 @@ function DeleteGroep($groepId)
 function CheckIfTimeReserved($reserveTime)
 {
     // Query to check if the time is reserved
-    $query = "SELECT COUNT(*) as count FROM Reservations WHERE reserveTime = ?";
+    $query = "SELECT COUNT(*) as count FROM Groep WHERE EscapeTijd = ?";
     
     // Execute the query
     $result = ExecuteQuery($query, "s", [$reserveTime]);
