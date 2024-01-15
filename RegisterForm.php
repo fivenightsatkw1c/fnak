@@ -31,7 +31,7 @@ include "Database/StudentController.php";
 </head>
 
 <body>
-<?php include './Database/Exists.php'; ?>
+
 
     <main class="main">
         <section class="RegisterForm section" id="Register">
