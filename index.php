@@ -27,15 +27,29 @@
 
 <body>
     <?php 
-    $link1="active-link";
-    include 'header.php';
+      $link1="active-link";
+      include 'header.php';
     ?>
 
     <main class="main">
         <section class="section">
-            <!-- Your existing content here -->
+            <h1 class="section-title">Speel jij mee met de escape room?</h1>
+            <p class="section-subtitle">
+                Stap in de toekomst van escape rooms met onze unieke ervaring, volledig aangedreven door de kracht
+                van Raspberry Pi! Ontdek een wereld waar technologie en spanning samenkomen in een meeslepend
+                avontuur zonder grenzen. Onze escape room, gevormd door innovatieve Raspberry Pi-componenten, biedt
+                een opwindende reeks uitdagingen die je denkvermogen en teamvaardigheden op de proef stellen.
+                Duik in een labyrint van geavanceerde puzzels en interactieve opstellingen, waar elke Raspberry
+                Pi-geïntegreerde component een sleutelrol speelt in het ontrafelen van de mysteries. Werk samen met
+                je team, analyseer de codes en navigeer door de digitale en fysieke puzzels om de ultieme
+                ontsnapping te bereiken.
+                Durf jij de onbekende wereld van onze Raspberry Pi escape room te betreden? Reserveer nu en ontdek
+                een nieuwe dimensie van escapisme, waar de toekomst van technologie en entertainment elkaar ontmoeten.
+                Een ervaring die je niet wilt missen!
+            </p>
+            <div>
+            </div>
         </section>
-
         <section class="section" id="Register-View">
             <h2 class="section-title">Registeer Hier</h2>
             <div class="Register-View-container container">
@@ -59,17 +73,10 @@
                         // Loop through possible times to create labels
                         for ($i = 0; $i < count($possibleTimes); $i++) {
                             $time = $possibleTimes[$i];
+                            $teamLabel = array_key_exists($time, $reservedTeams) ? $reservedTeams[$time] : 'Open';
                             ?>
                             <div class="Register-View-content">
-                                <label for="team" class="Register-View-label">
-                                    <?php
-                                    if (array_key_exists($time, $reservedTeams)) {
-                                        echo $reservedTeams[$time];
-                                    } else {
-                                        echo 'Open';
-                                    }
-                                    ?>
-                                </label>
+                                <label for="team" class="Register-View-label"><?php echo $teamLabel; ?></label>
                             </div>
                             <div class="Register-View-content">
                                 <label for="Time" class="Register-View-label"><?php echo $time; ?></label>
@@ -96,4 +103,5 @@
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
