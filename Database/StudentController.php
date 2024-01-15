@@ -9,7 +9,7 @@ Subject:    General functies voor de database
 // Om deze code te gebruiken moet je "include DbGeneralFunctions;" Toevoegen aan je code! //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-require_once "/home/site/wwwroot/Database/DbGeneralFunctions.php"; 
+require_once "DbGeneralFunctions.php"; 
 
 
 // Creates een nieuwe student

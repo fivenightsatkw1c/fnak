@@ -138,6 +138,7 @@ img {
   display: block;
   font-size: var(--small-font-size);
   margin-bottom: var(--mb-3);
+  color: #fff;
 }
 section-title.wihte {
   color: #fff;

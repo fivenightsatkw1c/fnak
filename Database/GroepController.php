@@ -5,7 +5,7 @@ Datum:      15-12-2023
 Subject:    
 */
 
-require_once "/home/site/wwwroot/Database/DbGeneralFunctions.php"; 
+require_once "DbGeneralFunctions.php"; 
 
 // Creates een nieuwe groep en zet deze in de database
 function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
