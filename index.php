@@ -39,58 +39,52 @@
         <section class="section" id="Register-View">
             <h2 class="section-title">Registeer Hier</h2>
             <div class="Register-View-container container">
-                <?php
-                // Fetch existing teams and their reserved times
-                $existingTeams = ReadAllGroep();
+                <form class="Register-View-form grid" method="post" action="process_form.php">
+                    <div class="Register-View-Times grid">
+                        <?php
+                        // Fetch existing teams and their reserved times
+                        $existingTeams = ReadAllGroep();
 
-                // Check if there are existing teams
-                if ($existingTeams->rowCount() > 0) {
-                    ?>
-                    <form class="Register-View-form grid" method="post" action="process_form.php">
-                        <div class="Register-View-Times grid">
-                            <?php
-                            // Create an associative array to store reserved times and team names
-                            $reservedTeams = [];
+                        // Create an associative array to store reserved times and team names
+                        $reservedTeams = [];
 
-                            // Loop through existing teams
-                            while ($row = $existingTeams->fetch()) {
-                                $reservedTeams[date('H:i', strtotime($row['reserveerDatumTijd']))] = $row['Groepnaam'];
-                            }
+                        // Loop through existing teams
+                        while ($row = $existingTeams->fetch()) {
+                            $reservedTeams[date('H:i', strtotime($row['reserveerDatumTijd']))] = $row['Groepnaam'];
+                        }
 
-                            // Define all possible times
-                            $possibleTimes = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00"];
+                        // Define all possible times
+                        $possibleTimes = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00"];
 
-                            // Loop through possible times to create labels
-                            foreach ($possibleTimes as $time) {
-                                ?>
-                                <div class="Register-View-content">
-                                    <label for="Time" class="Register-View-label">
-                                        <?php
-                                        if (array_key_exists($time, $reservedTeams)) {
-                                            echo $reservedTeams[$time] . ' - ' . $time;
-                                        } else {
-                                            echo 'Open - ' . $time;
-                                        }
-                                        ?>
-                                    </label>
-                                </div>
-                                <?php
-                            }
+                        // Loop through possible times to create labels
+                        for ($i = 0; $i < count($possibleTimes); $i++) {
+                            $time = $possibleTimes[$i];
                             ?>
-                        </div>
-                        <div>
-                            <button type="submit" class="button button--flex" name="submit_form">
-                                Registreren
-                                <i class="uil uil-message button-icon"></i>
-                            </button>
-                        </div>
-                    </form>
-                    <?php
-                } else {
-                    // Display a message if there are no existing teams
-                    echo '<p>No existing teams found.</p>';
-                }
-                ?>
+                            <div class="Register-View-content">
+                                <label for="team" class="Register-View-label">
+                                    <?php
+                                    if (array_key_exists($time, $reservedTeams)) {
+                                        echo $reservedTeams[$time];
+                                    } else {
+                                        echo 'Open';
+                                    }
+                                    ?>
+                                </label>
+                            </div>
+                            <div class="Register-View-content">
+                                <label for="Time" class="Register-View-label"><?php echo $time; ?></label>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <button type="submit" class="button button--flex" name="submit_form">
+                            Registreren
+                            <i class="uil uil-message button-icon"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
