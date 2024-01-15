@@ -1,6 +1,7 @@
 <?php
 include "Database/GroepController.php";
 include "Database/StudentController.php";
+include "Database/Exists.php"
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ include "Database/StudentController.php";
 
     <title>Koning Willem 1</title>
 </head>
-
+<?php include 'header.php'; ?>
 <body>
 
 
