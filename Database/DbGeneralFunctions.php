@@ -68,11 +68,12 @@ function ExecuteQuery($query, $types = "", array $arg = [])
         // 😔
       if($e->getCode() == 23000)
       {
-        echo "<script>alert(\"de team naam bestaat al\")</script>";
+      echo "<script>alert(\"de team naam bestaat al\")</script>";
+      header("refresh:3;url=RegisterForm.php");
       }else{
-        echo "er ging iets fout: " . $e->getMessage();
-    }
-    die(); 
+      echo "er ging iets fout: " . $e->getMessage();
+      die();
+      }
     }
 
     // Geeft het resultaat terug
