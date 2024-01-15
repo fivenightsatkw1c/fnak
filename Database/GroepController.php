@@ -82,3 +82,26 @@ function DeleteGroep($groepId)
     return ExecuteQuery($query, "i", [$groepId]);
 }
 
+// Check if email already exists in the database
+function CheckIfEmailExists($email)
+{
+    $query = "SELECT COUNT(*) as count FROM Groep WHERE Email = ?";
+    $result = ExecuteQuery($query, "s", [$email]);
+    
+    $row = $result->fetch();
+    $count = isset($row['count']) ? $row['count'] : 0;
+
+    return $count > 0;
+}
+
+// Check if a specific time is already reserved
+function CheckIfTimeReserved($reserveTime)
+{
+    $query = "SELECT COUNT(*) as count FROM Groep WHERE reserveerDatumTijd = ?";
+    $result = ExecuteQuery($query, "s", [$reserveTime]);
+    
+    $row = $result->fetch();
+    $count = isset($row['count']) ? $row['count'] : 0;
+
+    return $count > 0;
+}
