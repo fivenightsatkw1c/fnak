@@ -23,17 +23,17 @@ function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 // {
 //     echo $row["Email"]."<br>";
 // }
-function ReadAllGroep($OrderBy = "")
+function ReadAllGroep($startTime, $endTime)
 {
     // Query aanmaken
-    $query = "SELECT * ".
-    "FROM Groep AS G ".
-    "ORDER BY G.GroepId";
-    
-    // Query uitvoeren
-    return ExecuteQuery($query, "", []);
-}
+    $query = "SELECT * " .
+             "FROM Groep AS G " .
+             "WHERE G.reserveerDatumTijd BETWEEN ? AND ? " .
+             "ORDER BY G.GroepId";
 
+    // Query uitvoeren
+    return ExecuteQuery($query, "ss", [$startTime, $endTime]);
+}
 // Haalt één groep op
 function ReadOneGroep($GroepId)
 {

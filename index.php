@@ -1,3 +1,7 @@
+<?php
+include "Database/GroepController.php";
+include "Database/StudentController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,37 +58,41 @@
             <h2 class="section-title">Registeer Hier</h2>
             <div class="Register-View-container container">
                 <form class="Register-View-form grid" method="post" action="process_form.php">
-                    <div class="Register-View-Times grid">
-                        <?php
-                        // Fetch existing teams and their reserved times
-                        $existingTeams = ReadAllGroep();
 
-                        // Create an associative array to store reserved times and team names
-                        $reservedTeams = [];
+                    <?php
+                    // Assuming you have a function to retrieve existing teams based on time slots
+                    $existingTeams = ReadAllGroep("9:00", "14:00");
 
-                        // Loop through existing teams
-                        while ($row = $existingTeams->fetch()) {
-                            $reservedTeams[date('H:i', strtotime($row['reserveerDatumTijd']))] = $row['Groepnaam'];
+                    // Array of time slots
+                    $timeSlots = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00'];
+
+                    // Loop through time slots
+                    foreach ($timeSlots as $timeSlot) {
+                        echo '<div class="Register-View-Times grid">';
+                        echo '<div class="Register-View-content">';
+                        echo '<label for="team" class="Register-View-label">Open</label>';
+                        echo '</div>';
+                        echo '<div class="Register-View-content">';
+                        echo '<label for="Time" class="Register-View-label">' . $timeSlot . '</label>';
+                        echo '</div>';
+                        echo '<div class="Register-View-content">';
+                        echo '<label for="team" class="Register-View-label">';
+
+                        // Display existing team names for the current time slot
+                        if (isset($existingTeams[$timeSlot]) && !empty($existingTeams[$timeSlot])) {
+                            foreach ($existingTeams[$timeSlot] as $teamName) {
+                                echo $teamName . '<br>';
+                            }
+                        } else {
+                            echo 'Open';
                         }
 
-                        // Define all possible times
-                        $possibleTimes = ["9:00", "10:00", "11:00", "12:00", "13:00", "14:00"];
+                        echo '</label>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
 
-                        // Loop through possible times to create labels
-                        for ($i = 0; $i < count($possibleTimes); $i++) {
-                            $time = $possibleTimes[$i];
-                            $teamLabel = array_key_exists($time, $reservedTeams) ? $reservedTeams[$time] : 'Open';
-                            ?>
-                            <div class="Register-View-content">
-                                <label for="team" class="Register-View-label"><?php echo $teamLabel; ?></label>
-                            </div>
-                            <div class="Register-View-content">
-                                <label for="Time" class="Register-View-label"><?php echo $time; ?></label>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
                     <div>
                         <button type="submit" class="button button--flex" name="submit_form">
                             Registreren
@@ -94,6 +102,8 @@
                 </form>
             </div>
         </section>
+
+
     </main>
 
     <?php include 'footer.php'; ?>
