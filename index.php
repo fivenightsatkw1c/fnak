@@ -94,12 +94,6 @@ include "Database/StudentController.php";
                             <label for="Time" class="Register-View-label">Time: <?php echo $group['reserveerDatumTijd']; ?></label>
                         </div>                     
                     </div>
-                    <div>
-                        <button type="submit" class="button button--flex" name="submit_form">
-                            Registreren
-                            <i class="uil uil-message button-icon"></i>
-                        </button>
-                    </div>
                 </form>
                 <?php
             }
