@@ -1,7 +1,6 @@
 <?php
 include "Database/GroepController.php";
 include "Database/StudentController.php";
-include "Database/Exists.php"
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +29,13 @@ include "Database/Exists.php"
 
     <title>Koning Willem 1</title>
 </head>
-<?php include 'header.php'; ?>
+
 <body>
-
-
+    <?php 
+        $link3 = "active-link";
+        include 'header.php';
+    ?>
+    
     <main class="main">
         <section class="RegisterForm section" id="Register">
             <h2 class="section-title">Registeer Hier</h2>
