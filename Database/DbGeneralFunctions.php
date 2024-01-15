@@ -63,11 +63,16 @@ function ExecuteQuery($query, $types = "", array $arg = [])
             die();
         }
     }
-    catch (Exception $e)
+    catch (PDOException $e)
     {
         // 😔
-        echo "<strong>Query error</strong>: ".$query."<br>".$e."<br>";
-        die();
+      if($e->getCode() == 23000)
+      {
+        echo "<script>alert(\"de team naam bestaat al\")</script>";
+      }else{
+        echo "er ging iets fout: " . $e->getMessage();
+    }
+    die(); 
     }
 
     // Geeft het resultaat terug
