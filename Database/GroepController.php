@@ -23,17 +23,15 @@ function CreateGroep($groepNaam, $email, $reserveerDatumTijd)
 // {
 //     echo $row["Email"]."<br>";
 // }
-function ReadAllGroep()
+function ReadAllGroep($OrderBy = "")
 {
-    $query = "SELECT * FROM Groep";
-
-    // Call ExecuteQuery to execute the query
-    $result = ExecuteQuery($query, '', []);
-
-    // Fetch all rows from the result set
-    $groepen = $result->fetchAll(PDO::FETCH_ASSOC);
-
-    return $groepen;
+    // Query aanmaken
+    $query = "SELECT * ".
+    "FROM Groep AS G ".
+    "ORDER BY G.GroepId";
+    
+    // Query uitvoeren
+    return ExecuteQuery($query, "", []);
 }
 
 // Haalt één groep op
@@ -84,21 +82,3 @@ function DeleteGroep($groepId)
     return ExecuteQuery($query, "i", [$groepId]);
 }
 
-// Function to check if a specific time is already reserved
-function CheckIfTimeReserved($reserveTime)
-{
-    // Query to check if the time is reserved
-    $query = "SELECT COUNT(*) as count FROM Groep WHERE EscapeTijd = ?";
-    
-    // Execute the query
-    $result = ExecuteQuery($query, "s", [$reserveTime]);
-
-    // Fetch the result as an associative array
-    $row = $result->fetch();
-
-    // Extract the count from the associative array
-    $count = isset($row['count']) ? $row['count'] : 0;
-
-    // Return true if count is greater than 0, indicating the time is reserved
-    return $count > 0;
-}

@@ -63,18 +63,11 @@ function ExecuteQuery($query, $types = "", array $arg = [])
             die();
         }
     }
-    catch (PDOException $e)
+    catch (Exception $e)
     {
         // 😔
-      if($e->getCode() == 23000)
-      {
-      header("refresh:3;url=RegisterForm.php");
-      echo "<script>alert(\"de team naam bestaat al\")</script>";
-     die(); 
-    }else{
-      echo "er ging iets fout: " . $e->getMessage();
-      die();
-      }
+        echo "<strong>Query error</strong>: ".$query."<br>".$e."<br>";
+        die();
     }
 
     // Geeft het resultaat terug

@@ -1,11 +1,5 @@
-<?php
-include "Database/GroepController.php";
-include "Database/StudentController.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <meta charset="UTF-8">
@@ -32,34 +26,11 @@ include "Database/StudentController.php";
 </head>
 
 <body>
-<?php 
-    $link1 = "active-link";
-    include 'header.php';
+    <?php 
+      $link1="active-link";
+      include 'header.php';
+    ?>
 
-    // Fetch all groups and their reservation times
-    $allGroups = ReadAllGroep();
-
-    // Check if a specific group is picked
-    if (!empty($allGroups)) {
-        foreach ($allGroups as $group) {
-            // Check if the time is already reserved
-            $isTimeReserved = CheckIfTimeReserved($group['reserveerDatumTijd']);
-
-            if ($isTimeReserved) {
-                // The time is already reserved, display a message or take appropriate action
-                echo '<p>Group: ' . $group['Groepnaam'] . ' - Time: ' . $group['reserveerDatumTijd'] . ' is already reserved by another team. Please choose a different time.</p>';
-            } else {
-                // The time is available, display the registration form
-                displayRegistrationForm($group);
-            }
-        }
-    } else {
-        // Handle case when no groups are available
-        echo '<p>No groups available for registration.</p>';
-    }
-?>
-
-    
     <main class="main">
         <section class="section">
             <h1 class="section-title">Speel jij mee met de escape room?</h1>
@@ -79,27 +50,28 @@ include "Database/StudentController.php";
             <div>
             </div>
         </section>
+
         <section class="section" id="Register-View">
-        <h2 class="section-title">Registeer Hier</h2>
-        <div class="Register-View-container container">
-            <?php
-            function displayRegistrationForm($group) {
-                ?>
+            <h2 class="section-title">Registeer Hier</h2>
+            <div class="Register-View-container container">
                 <form class="Register-View-form grid" method="post" action="process_form.php">
                     <div class="Register-View-Times grid">
                         <div class="Register-View-content">
-                            <label for="team" class="Register-View-label">Group Name: <?php echo $group['Groepnaam']; ?></label>
+                            <label for="team" class="Register-View-label">Open</label>
                         </div>
                         <div class="Register-View-content">
-                            <label for="Time" class="Register-View-label">Time: <?php echo $group['reserveerDatumTijd']; ?></label>
+                            <label for="Time" class="Register-View-label"></label>
                         </div>                     
                     </div>
+                    <div>
+                        <button type="submit" class="button button--flex" name="submit_form">
+                            Registreren
+                            <i class="uil uil-message button-icon"></i>
+                        </button>
+                    </div>
                 </form>
-                <?php
-            }
-            ?>
-        </div>
-    </section>
+            </div>
+        </section>
     </main>
 
     <?php include 'footer.php'; ?>
