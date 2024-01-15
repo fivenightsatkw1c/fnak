@@ -135,10 +135,10 @@ img {
 }
 
 .section-subtitle {
+  color: #fff;
   display: block;
   font-size: var(--small-font-size);
   margin-bottom: var(--mb-3);
-  color: #fff;
 }
 section-title.wihte {
   color: #fff;
@@ -423,14 +423,14 @@ section-title.wihte {
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
-  padding: 0.75rem 1rem 0.25rem;
+  padding: 1.25rem 1rem 1.25rem;
 }
 .Register-View-label {
   font-size: var(--small-font-size);
   color: var(--title-color);
 }
-.Register-View-input {
-  width: 100%;
+.Register-View-Time {
+  width: 60%;
   outline: none;
   border: none;
   background-color: var(--input-color);
@@ -451,7 +451,7 @@ section-title.wihte {
   }
 }
 @media only screen and (min-width: 1024px) {
-  .Register-View-inputs {
+  .Register-View-Times {
     grid-template-columns: repeat(2, 1fr);
   }
 }
