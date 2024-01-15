@@ -26,11 +26,33 @@
 </head>
 
 <body>
-    <?php 
-      $link1="active-link";
-      include 'header.php';
+<?php 
+        $link1 = "active-link";
+        include 'header.php';
+
+        // Assume "pickid" is obtained from a query parameter
+        $pickedGroupId = isset($_GET['pickid']) ? $_GET['pickid'] : null;
+
+        // Check if a specific group is picked
+        if ($pickedGroupId) {
+            // Retrieve information about the picked group
+            $pickedGroup = ReadOneGroep($pickedGroupId);
+            $pickedTime = $pickedGroup['reserveerDatumTijd'];
+            
+            // Check if the picked time is already reserved
+            $isTimeReserved = CheckIfTimeReserved($pickedTime);
+
+            if ($isTimeReserved) {
+                // The time is already reserved, display a message or take appropriate action
+                echo '<p>This time is already reserved by another team. Please choose a different time.</p>';
+            } else {
+                // The time is available, display the registration form
+                displayRegistrationForm($pickedGroup);
+            }
+        }
     ?>
 
+    
     <main class="main">
         <section class="section">
             <h1 class="section-title">Speel jij mee met de escape room?</h1>
@@ -50,28 +72,31 @@
             <div>
             </div>
         </section>
-
         <section class="section" id="Register-View">
             <h2 class="section-title">Registeer Hier</h2>
             <div class="Register-View-container container">
-                <form class="Register-View-form grid" method="post" action="process_form.php">
-                    <div class="Register-View-Times grid">
-                        <div class="Register-View-content">
-                            <label for="team" class="Register-View-label">TeamNaam</label>
-                            <input type="text" class="Register-View-Time" id="name" name="team_name" required>
+                <?php
+                function displayRegistrationForm($group) {
+                    ?>
+                    <form class="Register-View-form grid" method="post" action="process_form.php">
+                        <div class="Register-View-Times grid">
+                            <div class="Register-View-content">
+                                <label for="team" class="Register-View-label">Group Name: <?php echo $group['Groepnaam']; ?></label>
+                            </div>
+                            <div class="Register-View-content">
+                                <label for="Time" class="Register-View-label">Time: <?php echo $group['reserveerDatumTijd']; ?></label>
+                            </div>                     
                         </div>
-                        <div class="Register-View-content">
-                            <label for="email" class="Register-View-label"> Primaire Contact E-mail</label>
-                            <input type="email" class="Register-View-Time" id="email" name="email" required>
-                        </div>                     
-                    </div>
-                    <div>
-                        <button type="submit" class="button button--flex" name="submit_form">
-                            Registreren
-                            <i class="uil uil-message button-icon"></i>
-                        </button>
-                    </div>
-                </form>
+                        <div>
+                            <button type="submit" class="button button--flex" name="submit_form">
+                                Registreren
+                                <i class="uil uil-message button-icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <?php
+                }
+                ?>
             </div>
         </section>
     </main>

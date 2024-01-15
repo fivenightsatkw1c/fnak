@@ -81,3 +81,22 @@ function DeleteGroep($groepId)
     // Query uitvoeren
     return ExecuteQuery($query, "i", [$groepId]);
 }
+
+// Function to check if a specific time is already reserved
+function CheckIfTimeReserved($reserveTime)
+{
+    // Query to check if the time is reserved
+    $query = "SELECT COUNT(*) as count FROM Reservations WHERE reserveTime = ?";
+    
+    // Execute the query
+    $result = ExecuteQuery($query, "s", [$reserveTime]);
+
+    // Fetch the result as an associative array
+    $row = $result->fetch();
+
+    // Extract the count from the associative array
+    $count = isset($row['count']) ? $row['count'] : 0;
+
+    // Return true if count is greater than 0, indicating the time is reserved
+    return $count > 0;
+}
