@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_form"])) {
                 <?php
                 if (isset($errorMessage)) {
                     echo $errorMessage;
-                    echo '<a href="RegisterForm.php" class="button button--flex">Back to Reservation</a>';
+                    echo '<a href="Index.php" class="button button--flex">Back to Reservation</a>';
                 } elseif (isset($successMessage)) {
                     echo $successMessage;
                 }
