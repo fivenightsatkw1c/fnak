@@ -54,7 +54,7 @@ include "Database/StudentController.php";
             <div>
             </div>
         </section>
-        <section class="section" id="Register-View">
+       <!-- <section class="section" id="Register-View">
             <h2 class="section-title">Registeer Hier</h2>
             <div class="Register-View-container container">
                 <form class="Register-View-form grid" method="post" action="process_form.php">
@@ -101,7 +101,7 @@ include "Database/StudentController.php";
                     </div>
                 </form>
             </div>
-        </section>
+        </section> -->
 
 
     </main>
