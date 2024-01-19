@@ -17,19 +17,14 @@ if(!isset($link3)){
                 <div class="nav-menu" id="nav-menu">
                     <ul class="nav-list grid">
                         <li class="nav-item">
-                            <a href="index.php" class=<?php echo "\"nav-link ".$link1."\"" ?>>
-                                <i class="uil uil-estate nav-icon"></i>Home
+                            <a href="RegisterForm.php" class=<?php echo "\"nav-link ".$link1."\"" ?>>
+                                <i class="uil uil-estate nav-icon"></i>Registreren
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#Info" class=<?php echo "\"nav-link ".$link2."\"" ?>>
+                            <a href="Info.php" class=<?php echo "\"nav-link ".$link2."\"" ?>>
                                 <i class="uil uil-file-info-alt nav-icon"></i>Info
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="RegisterForm.php" class=<?php echo "\"nav-link ".$link3."\"" ?>>
-                                <i class="uil uil-file-info-alt nav-icon"></i> Registreren</a
-                            >
                         </li>
                     
                     </ul>

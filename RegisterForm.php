@@ -32,7 +32,7 @@ include "Database/StudentController.php";
 
 <body>
     <?php 
-        $link3 = "active-link";
+        $link1 = "active-link";
         include 'header.php';
     ?>
 

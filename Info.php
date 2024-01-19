@@ -2,6 +2,7 @@
 include "Database/GroepController.php";
 include "Database/StudentController.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,12 +32,12 @@ include "Database/StudentController.php";
 
 <body>
     <?php 
-      $link1="active-link";
-      include 'header.php';
+        $link2 = "active-link";
+        include 'header.php';
     ?>
 
     <main class="main">
-        <section class="section">
+    <section class="section">
             <h1 class="section-title">Speel jij mee met de escape room?</h1>
             <p class="section-subtitle">
                 Stap in de toekomst van escape rooms met onze unieke ervaring, volledig aangedreven door de kracht
@@ -54,63 +55,17 @@ include "Database/StudentController.php";
             <div>
             </div>
         </section>
-       <!-- <section class="section" id="Register-View">
-            <h2 class="section-title">Registeer Hier</h2>
-            <div class="Register-View-container container">
-                <form class="Register-View-form grid" method="post" action="process_form.php">
-
-                    <?php
-                    // Assuming you have a function to retrieve existing teams based on time slots
-                    $existingTeams = ReadAllGroep("9:00", "14:00");
-
-                    // Array of time slots
-                    $timeSlots = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00'];
-
-                    // Loop through time slots
-                    foreach ($timeSlots as $timeSlot) {
-                        echo '<div class="Register-View-Times grid">';
-                        echo '<div class="Register-View-content">';
-                        echo '<label for="team" class="Register-View-label">Open</label>';
-                        echo '</div>';
-                        echo '<div class="Register-View-content">';
-                        echo '<label for="Time" class="Register-View-label">' . $timeSlot . '</label>';
-                        echo '</div>';
-                        echo '<div class="Register-View-content">';
-                        echo '<label for="team" class="Register-View-label">';
-
-                        // Display existing team names for the current time slot
-                        if (isset($existingTeams[$timeSlot]) && !empty($existingTeams[$timeSlot])) {
-                            foreach ($existingTeams[$timeSlot] as $teamName) {
-                                echo $teamName . '<br>';
-                            }
-                        } else {
-                            echo 'Open';
-                        }
-
-                        echo '</label>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                    ?>
-
-                    <div>
-                        <button type="submit" class="button button--flex" name="submit_form">
-                            Registreren
-                            <i class="uil uil-message button-icon"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section> -->
-
-
     </main>
 
     <?php include 'footer.php'; ?>
 
-    <!-- Scripts -->
+    <!-- SWIPER JS -->
     <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!-- SCROLL REVEAL JS -->
     <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!-- MAIN JS -->
     <script src="assets/js/main.js"></script>
 </body>
 
