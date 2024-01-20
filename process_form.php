@@ -14,6 +14,12 @@ function displayMessage($message, $type = 'warning')
     return '<p class="' . $type . '">' . $message . '</p>';
 }
 
+// Function to send an email
+function sendEmail($to, $subject, $message, $headers)
+{
+    mail($to, $subject, $message, $headers);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_form"])) {
     // Get form data
     $groupNaam = sanitize($_POST["team_name"]);
@@ -30,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_form"])) {
 
     if ($existingGroup) {
         // Group name already exists, display an error message
-        $errorMessage = displayMessage('Group with the name ' . $groupNaam . ' already exists. Please choose a different name.');
+        $errorMessage = displayMessage('Groep met de naam ' . $groupNaam . ' bestaat al. Kies alstublieft een andere naam.');
     } else {
         // Continue with the registration process
         // Check if email already exists
@@ -38,14 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_form"])) {
 
         if ($existingEmail) {
             // Email already exists, display an error message
-            $errorMessage = displayMessage('Email ' . $email . ' is already associated with another group. Please use a different email.');
+            $errorMessage = displayMessage('E-mail ' . $email . ' is al gekoppeld aan een andere groep. Gebruik alstublieft een ander e-mailadres.');
         } else {
             // Check if the selected date and time are already reserved
             $isTimeReserved = CheckIfTimeReserved($selectedTime);
 
             if ($isTimeReserved) {
                 // Time is already reserved, display an error message
-                $errorMessage = displayMessage('The selected date and time (' . $selectedTime . ') are already reserved by another group. Please choose a different time.');
+                $errorMessage = displayMessage('De geselecteerde datum en tijd (' . $selectedTime . ') zijn al gereserveerd door een andere groep. Kies alstublieft een andere tijd.');
             } else {
                 // Continue with the registration process
                 // Insert group and student data into the database
@@ -58,13 +64,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_form"])) {
                 if (!empty($member4)) CreateStudent($groupId, $member4);
                 if (!empty($member5)) CreateStudent($groupId, $member5);
 
+                // Send email to the registered user
+                $to = $email;
+                $subject = "Registratie Bevestiging";
+                $message = "Bedankt voor de registratie!\n";
+                $message .= "Team Naam: $groupNaam\n";
+                $message .= "Geselecteerde Tijd: $selectedTime\n";
+                $headers = "From: Nuura.Mahamud@edu-kw1c.nl"; // Vervang dit met je eigen e-mailadres
+
+                sendEmail($to, $subject, $message, $headers);
+
                 // Display success message
-                $successMessage = displayMessage('Registration successful!', 'success');
+                $successMessage = displayMessage('Registratie succesvol! Er is een e-mail gestuurd naar ' . $email . ' met de details.', 'success');
             }
         }
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
