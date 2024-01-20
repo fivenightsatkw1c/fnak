@@ -7,7 +7,7 @@
                     </div>
                     <div>
                         <p class="footer-copy">
-                            Copyright&copy; 2023. Nuura <br />
+                            Copyright&copy; 2024. IO3S1A <br />
                         </p>
                     </div>
                     <div class="footer-socials">
